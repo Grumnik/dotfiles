@@ -17,19 +17,3 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 
 PATH=$PATH:$HOME/scripts
 
-activate_venv(){
-	if [ $# -eq 0 ]
-	  then
-		echo "No project supplied as argument"
-        return 1
-	fi
-
-    cd ~/projects/$1
-    if [ ! -d "venv" ]
-    then
-        python3.9 -m venv venv
-    fi
-    source venv/bin/activate
-}
-
-

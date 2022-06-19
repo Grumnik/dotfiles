@@ -1,0 +1,3 @@
+#! /bin/bash
+
+sudo less +F /var/log/uwsgi/app/"$1".log

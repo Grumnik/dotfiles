@@ -1,0 +1,7 @@
+#! /bin/bash
+
+sudo systemctl stop uwsgi-app@"$1".service
+sudo systemctl stop uwsgi-app@"$1".socket
+sudo systemctl start uwsgi-app@"$1".socket
+sudo systemctl start uwsgi-app@"$1".service
+
