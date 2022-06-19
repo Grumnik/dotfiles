@@ -6,9 +6,6 @@ SHELL_INIT="$$HOME/.bashrc"
 all:
 	@echo "no argument passed do 'make help' for examples"
 
-help:
-	@echo "possible arguments: show_vars, config_i3, config_nvim, install_scripts" 
-
 show_vars:
 	@echo "SHELL_INIT: ${SHELL_INIT}"
 	@echo "XDG_DATA_HOME: ${XDG_DATA_HOME}"
@@ -29,4 +26,6 @@ install_scripts:
 	cp -r ./scripts ~/
 	grep -qxF 'PATH=$$PATH:$$HOME/scripts' ${SHELL_INIT} || echo 'PATH=$$PATH:$$HOME/scripts' >> ${SHELL_INIT}
 
+install_bash_aliases: question
+	cp ./bash_aliases ~/.bash_aliases
 
