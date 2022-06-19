@@ -1,10 +1,14 @@
 ifeq (${XDG_DATA_HOME},"")
 	XDG_DATA_HOME="$$HOME/.config"
 endif
-SHELL_INIT="$$HOME/.bashrc"
+SHELL_INIT="$$HOME/.bash_aliases"
 
 all:
-	@echo "no argument passed do 'make help' for examples"
+	@echo "no argument passed"
+
+install: install_scripts install_bash_aliases
+
+config: config_i3 config_nvim
 
 show_vars:
 	@echo "SHELL_INIT: ${SHELL_INIT}"
@@ -25,6 +29,7 @@ config_nvim: question
 install_scripts:
 	cp -r ./scripts ~/
 	grep -qxF 'PATH=$$PATH:$$HOME/scripts' ${SHELL_INIT} || echo 'PATH=$$PATH:$$HOME/scripts' >> ${SHELL_INIT}
+	grep -qxF 'PATH=$$PATH:$$HOME/scripts/server' ${SHELL_INIT} || echo 'PATH=$$PATH:$$HOME/scripts/server' >> ${SHELL_INIT}
 
 install_bash_aliases: question
 	cp ./bash_aliases ~/.bash_aliases
