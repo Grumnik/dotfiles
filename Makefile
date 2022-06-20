@@ -35,4 +35,5 @@ install_scripts:
 
 install_bash_aliases: question
 	cp ./bash_aliases ~/.bash_aliases
+	source ${SHELL_INIT}
 
