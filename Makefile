@@ -30,8 +30,13 @@ config_nvim: question
 install_scripts:
 	cp -r ./scripts ~/
 	grep -qxF 'PATH=$$PATH:$$HOME/scripts' ${SHELL_INIT} || echo 'PATH=$$PATH:$$HOME/scripts' >> ${SHELL_INIT}
-	grep -qxF 'PATH=$$PATH:$$HOME/scripts/server' ${SHELL_INIT} || echo 'PATH=$$PATH:$$HOME/scripts/server' >> ${SHELL_INIT}
 	source ${SHELL_INIT}
+
+install_server_scripts:
+	cp -r ./scripts ~/
+	grep -qxF 'PATH=$$PATH:$$HOME/scripts' ${SHELL_INIT} || echo 'PATH=$$PATH:$$HOME/scripts' >> ${SHELL_INIT}
+	source ${SHELL_INIT}
+
 
 install_bash_aliases: question
 	cp ./bash_aliases ~/.bash_aliases

@@ -207,9 +207,9 @@ exec nitrogen --set-auto $wallpaper --head=0
 
 # set colors
 #class                 border  backgr. text    indicator child_border
-client.focused          #fadb2f #d79921 #282828 #fadb3f   #d79921
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.focused          #928374 #928374 #282828 #b8bb26   #928374
+client.focused_inactive #504945 #504945 #d5c4a1 #504945   #504945
+client.unfocused        #282828 #282828 #928374 #282828   #282828
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
