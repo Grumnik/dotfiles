@@ -1,0 +1,37 @@
+#! /bin/bash
+#
+# This script creates a user and database with the name of the first argument
+# then it grants all priveleges and installs the citext extension 
+
+check_proceed() {
+    if [ $? -eq 1 ]; then
+        read -p "Do you want to proceed? (yes/no) " proceed
+        case $proceed in 
+            no | n)
+                echo exiting...;
+                exit;;
+        esac
+    fi
+}
+
+if [ $# -eq 0 ]
+  then
+    echo "No user/database supplied"
+    exit 1
+fi
+
+sudo -i -u postgres psql -c "CREATE DATABASE $1;"
+check_proceed
+
+sudo -i -u postgres psql -c "CREATE USER $1 WITH PASSWORD '$1';"
+check_proceed
+
+sudo -i -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE $1 TO $1;"
+check_proceed
+
+# this part is not mandetory but i use Django's case insensitive model fields
+sudo -i -u postgres psql -d $1 -c "CREATE EXTENSION citext;"
+
+echo "Done!"
+
+
