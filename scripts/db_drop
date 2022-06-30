@@ -1,0 +1,7 @@
+#! /bin/bash
+
+ 
+sudo -i -u postgres psql -c "DROP DATABASE $1;"
+sudo -i -u postgres psql -c "DROP USER IF EXISTS $1;"
+
+
