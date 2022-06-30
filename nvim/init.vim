@@ -9,6 +9,7 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'jlanzarotta/bufexplorer'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'psliwka/vim-smoothie'
 call plug#end()
 
 " indent
