@@ -7,10 +7,6 @@ SHELL := /bin/bash
 all:
 	@echo "no argument passed"
 
-install: install_scripts install_bash_aliases
-
-config: config_i3 config_nvim
-
 show_vars:
 	@echo "SHELL_INIT: ${SHELL_INIT}"
 	@echo "XDG_DATA_HOME: ${XDG_DATA_HOME}"

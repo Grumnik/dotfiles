@@ -18,17 +18,29 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 PATH=$PATH:$HOME/scripts
 
 activate(){
+    PROJECTS_DIR=~/projects
     if [ $# -eq 0 ]
-      then
+    then
         echo "No project supplied as argument"
         return 1
     fi
 
-    cd ~/projects/$1
+    if [ ! -d "$PROJECTS_DIR/$1" ]
+    then
+        echo "No project $1 exists"
+        return 0
+    fi
+
+    cd $PROJECTS_DIR/$1
+
     if [ ! -d "venv" ]
     then
+    read -p "No virtual environment found, do you want to create one? (yes/no) " proceed
+        case $proceed in 
+            no | n)
+                return 1
+        esac
         python3.9 -m venv venv
     fi
     source venv/bin/activate
 }
-
